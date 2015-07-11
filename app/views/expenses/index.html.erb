@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<% if signed_in? %>
+
+<h1>Listing Expenses</h1>
+ <% form_tag expenses_path, :method => :get do %>
+<p>
+  <% text_field_tag :search, params[:search] %>
+  <% submit_tag "Search" %>
+</p>
+<% end %>
+<table>
+ 
+<div class='main'>
+        <table class="table table-striped">
+          <th>Date</th>
+          <th>Merchant</th>
+          <th>Comment</th>
+          <th>Category</th>
+          <th>Total Amount (NPR)</th>
+          <th>Reimbursable</th>
+          <th>Billable</th>        
+          <th>Edit</th>
+          <th>Destroy</th>
+
+  <tbody>
+    <% @expenses.each do |expense| %>
+      <tr>
+        <td><%= expense.date %></td>
+        <td><%= expense.merchant %></td>
+        <td><%= expense.comment %></td>
+        <td><%= expense.category %></td>
+        <td><%= expense.total %></td>
+        <td><%= expense.reimbursable %></td>                
+        <td><%= expense.billable %></td>
+        
+        <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+        <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</table>
+<br>
+<button><%= link_to 'New Expense', new_expense_path %></button>
+<% else %>
+<h1>Sample App</h1>
+<p>
+  Hello World
+</p>
+<%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+
+<% end %>

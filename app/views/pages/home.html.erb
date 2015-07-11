@@ -1,0 +1,39 @@
+<% if signed_in? %>
+<%= form_tag expenses_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :merchant => nil %>
+    
+  </p>
+<% end %>
+  <table class="front" summary="For signed-in users">
+    <tr>
+      
+        <h1 class="expense">Welcome To Spendify</h1> 
+        <table class="table table-striped">
+          <th>Date</th> 
+          <th>Merchant</th>
+          <th>Comment</th>
+          <th>Category</th>
+          <th>Total Amount (NPR)</th>
+          <th>Reimbursable</th>
+          <th>Billable</th> 
+
+        <%= render @expenses %>
+        </table>
+        <div class="container">
+        <%= link_to 'New Expense', new_expense_path %></button>
+        </div>
+    </tr>
+  </table>
+
+<% else %>
+
+<h1>Spendify App</h1>
+<p>
+  <Hello world>
+</p>
+
+<b><%= link_to "Sign up now!", signup_path, :class => "signup_button round" %></b>
+
+<% end %>

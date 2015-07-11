@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+  <td class="main">
+  	<span class="current_user">
+       <%= @user.name %>
+    </span>
+    <%= image_tag @user.image.url %>
+  	  <div class="row span6">
+		<% if @user.expenses.any? %>
+    <h3>Expenses (<%= @user.expenses.count %>)</h3>
+    <table class="table table-striped">
+          <th>Date</th> 
+          <th>Merchant</th>
+          <th>Comment</th>
+          <th>Category</th>
+          <th>Total Amount (NPR)</th>
+          <th>Reimbursable</th>
+          <th>Billable</th>  
+           <th>Edit</th>      
+        <%= render @expenses %>
+        </table>      	
+		<% else %>
+			<h3>No expenses yet!</h3>
+		<% end %>
+	</div>
+  </td>
+
+<button><%= link_to 'Back', users_path %></button>
+<button><%= link_to 'New Expense', new_expense_path %></button>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+           <p>
+              <strong>Merchant:</strong>
+              <%= @expense.merchant %>
+            </p>
+            <p>
+              <strong>Merchant:</strong>
+              <%= @expense.merchant %>
+            </p>
+            <p>
+              <strong>Comment:</strong>
+              <%= @expense.comment %>
+            </p>
+
+            <p>
+              <strong>Category:</strong>
+              <%= @expense.category %>
+            </p>
+
+            <p>
+              <strong>Total:</strong>
+              <%= @expense.total %>
+            </p>
+
+            <p>
+              <strong>Date:</strong>
+              <%= @expense.date %>
+            </p>
+            <p>
+              <strong>Reimbursable:</strong>
+              <%= @expense.reimbursable %>
+            </p>
+            <p>
+              <strong>Billable:</strong>
+              <%= @expense.billable %>
+            </p>
+<button><%= link_to 'Edit', edit_expense_path(@expenses) %></button> |
+<button><%= link_to 'Back', expenses_path %></button>
+
